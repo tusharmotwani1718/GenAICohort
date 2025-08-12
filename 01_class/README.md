@@ -1,12 +1,24 @@
-# React + Vite
+# 🔑 Tokenizee
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tokenizee is a **custom token generator** built with **React + TailwindCSS**.  
+It generates unique token codes for each character in a string — perfect for experimenting with basic tokenization concepts.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- 🔹 **Custom token generation** based on character encoding
+- 🔹 **Responsive dark-themed UI** with TailwindCSS
+- 🔹 Mobile-friendly design (sm, md, lg breakpoints)
+- 🔹 Simple & fast — instant token generation
+- 🔹 Easily extensible for encryption experiments
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+## 🚀 Getting Started
+
+ - Switch to main folder 01_class
+ - run : 
+    a. npm install
+    b. npm run dev
