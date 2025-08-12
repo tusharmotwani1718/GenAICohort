@@ -1,27 +1,17 @@
-function generateToken(input) {
-    let result = 0;
-    let tokens = [];
-
+export default function generateToken(input) {
     const encryptionCode = "Tokenizee" + "GENAI";
+    let tokens = [];
 
     for (let i = 0; i < input.length; i++) {
         if (input[i] === " ") {
-            tokens.push(result); // store token for current word
-            result = 0; // reset for next word
-            continue;   // skip processing the space
+            tokens.push("_");
+            continue;
         }
 
-        const charCode = input.charCodeAt(i); // charCode of specific character.
-        const code = i + encryptionCode.length + charCode;
-        result += code;
+        const charCode = input.charCodeAt(i);
+        const code = charCode + encryptionCode.length;
+        tokens.push(code);
     }
 
-    tokens.push(result); // push last word’s token
     return tokens;
 }
-
-
-
-export default generateToken;
-
-
