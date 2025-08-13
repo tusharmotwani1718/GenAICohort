@@ -17,10 +17,11 @@ function Tokenizee() {
     if (!input.trim()) return;
     setIsGenerating(true);
 
-    await new Promise(resolve => setTimeout(resolve, 800));
 
-    const tokens = generateToken(input);
-    setToken(tokens.join(" "));
+    const tokensArray = generateToken(input);
+    const response = tokensArray.join(",");
+    // console.log("response")
+    setToken(response);
     setIsGenerating(false);
   };
 
@@ -35,8 +36,7 @@ function Tokenizee() {
   const handleDecodeInput = () => {
     if (!decodeInput.trim()) return;
     const tokenArray = decodeInput
-      .split(" ")
-      .map(t => (t === " " ? " " : Number(t)));
+      .split(",")
     const decodedText = decodeToken(tokenArray);
     setDecodedResult(decodedText);
   };

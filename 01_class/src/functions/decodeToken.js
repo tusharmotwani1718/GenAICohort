@@ -1,5 +1,7 @@
+import constants from "../constants.js";
+
 export default function decodeToken(tokens) {
-    const encryptionCode = "Tokenizee" + "GENAI";
+    const encryptionCode = constants.encryptionCode;
     let output = "";
 
     tokens.forEach(token => {
@@ -9,7 +11,14 @@ export default function decodeToken(tokens) {
             const charCode = Number(token) - encryptionCode.length;
             output += String.fromCharCode(charCode);
         }
+        // console.log("output: ", output);
     });
 
     return output;
 }
+
+// const encodedTokens = [ "118", "_", "118" ];
+
+// const decoded = decodeToken(encodedTokens);
+// console.log("Decoded Token, ", decoded);
+
