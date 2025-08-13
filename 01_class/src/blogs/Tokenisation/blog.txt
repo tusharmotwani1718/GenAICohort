@@ -1,0 +1,40 @@
+# Tokenization for Freshers
+
+Hey there everyone, how are you? Hope you are doing great.
+
+In today's blog, we are going to take a deep dive about tokenization and how it works and will keep it easy to understand for the freshers as well. Yes, you don't need to be a tech expert for that.
+
+
+So, without wasting much of time, let's get started.
+
+
+
+Whenever you give any prompt to an AI tool, it takes those input string, converts them to some tokens.
+
+See, strings or texts are not understood by the machine. Transformers working behind the AI only understands tokens, these tokens are generally some numbers which are converted from your prompt text by some tokenization algorithm working behind the AI.
+
+The prompt you the AI, is not directly passed to the transformer behind it. Instead, it is first converted to tokens and then passed further.
+
+Want to learn how Transformers work?, check out my blog on "GPT Explained Like you're 5" here: 
+[Link]
+
+tokenization is nothing just simple encoding for the text you give as input.
+
+The encoding can make A = 1, B = 2, C = 3 and so on...
+
+But this is simple encoding, LLM's use complex encodings for inputs.
+
+
+When we say, transformer predicts next word or letter, the real part is it predicts next token.
+
+
+Think of it like your friend, when you want an extra pen while writing paper in the classroom, then instead of saying him directly by speech, you tokenise your message and transfer him through sign language.
+
+
+Now, your sign movements are tokens in the case.
+
+
+This is what tokenization actually means.
+
+
+So that was it from my side today, hope you enjoyed the blog. Thank you, Good Bye!
