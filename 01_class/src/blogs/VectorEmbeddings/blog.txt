@@ -1,0 +1,52 @@
+# Vector Embeddings Explained to Moms
+
+
+Hey there everyone, have you ever wanted to understand AI terms but always held back due to the jargon?
+
+If that's the case with you, in today's blog we will solve at least one highly used jargon in the AI field, and that is "Vector Embeddings."
+
+Sounds like a very complex thing that's only possible for techies to understand? But trust me, that's not the reality. In today's blog, we will uncover the truth behind it. In fact, I will make it so easy that any mother reading this can understand it easily.
+
+So, let's get started.
+
+Vector Embeddings is like placing things of equivalent nature together.
+
+Think of it like your kitchen: the spices are placed together, tea leaves and sugar are placed together, the water bottles, fruits, and vegetables are placed together (in the refrigerator). Also, you place the cookies and Maggi at the top, hiding them from the children, but still placed together.
+
+Now how do you decide what things should be placed together and what not? Obviously, based on their nature and how they are used.
+
+Tea leaves and sugar are placed together because both of them are used to prepare tea.
+
+You keep fruits and vegetables together because they are utilities the family needs to eat.
+
+You place all the cookies and junk food together because they are all snacks.
+
+Whenever you want anything from any category, you look around at the specific area.
+
+Same goes for all...
+
+→ Tubelight and fans must be placed together as they are both electronics.
+→ Pens and books must be placed together as they are both stationery.
+→ T-shirts and pants must be placed together as they are both clothes.
+
+Now think of all the real-world entities being placed in a similar way.
+
+But now we will need a very large container, and everything else remains the same.
+
+Getting it till now? Guess what—you've just understood the so-called complex "vector embeddings."
+
+Yes, it's nothing more than that.
+
+Vector Embeddings is a 3D graph that contains all the real-world entities, with the similar ones placed together and the distinct ones placed away.
+
+And each entity here has a unique coordinate, just like each thing in your kitchen has a unique position.
+
+→ Car and bike are placed near to each other as compared to car and mango.
+→ Table and chair are placed near to each other as compared to table and earphones.
+
+…and so on.
+
+So from next time, whenever you hear about vector embeddings, think of it like a large kitchen where all food elements are placed—the similar ones near each other, and the distinct ones comparatively away from each other. The more similarities they have, the nearer the coordinates they occupy.
+
+So, that was all from my side today. Hope you enjoyed this blog. Thank you.
+
