@@ -1,0 +1,67 @@
+# GPT Explained Like You’re 5
+
+Hey, ever wondered how GPT works?
+
+It seems like magic. It takes anything—text, image, video, recording, etc. and gives output at bullet train speed. It knows everything you want to ask.
+
+From all your favourite superheroes to the history of their inventions, from all your favourite chocolates to the details of who built them, it knows everything.
+
+Want to know about how Shinchan is so cool? It can actually tell you the history of its invention. Want to know about how Spiderman throws webs? It can actually tell you the physics behind it.
+
+But wait—it’s not magic! It’s just a lot of very fast math and smart rules working together to give you the answer.
+
+Don't worry, you neither need to be a mathematician nor an AI expert to understand that. Even a non-technical person can get that easily. In fact, that's the motive of today's blog.
+
+Let's get started.
+
+GPT stands for "Generative Pre-trained Transformer". Let's go word by word.
+
+1. Generative: Generative means to generate something. Plants generating fruits are generative; you generating new ideas to convince your parents to buy you that new game is also generative. Overall, anything that generates something new is generative in nature.
+
+2. Pre-Trained: It means to be trained on some specified data. Like when you were 1–2 years old, you could only say some specific words—in India, generally "Mumma" (Mother) or "Papa" (Father). No matter what anyone said to you, you couldn't say anything else.
+
+That's because you were often forced to learn to speak those first. That was the data on which you were trained regularly, so you only knew that and nothing else.
+
+But as you grew, you started listening to everyone around you. You learned and understood new words, and your vocabulary expanded.
+
+Now, the data on which you are trained is large. You can speak anything that's relevant to the context of the discussion or about your take on it.
+
+You generate new ideas based on past events, or something from the movies that you watched recently, because you are trained on it.
+
+See how the terms "Generative" and "Pre-trained" are connected.
+
+3. Transformer: Now comes the last but not the least term—"Transformer".
+
+A transformer is nothing but a machine or tool that takes something as input, works on it (processes it), and gives some output.
+
+You take your maths assignment questions (input), solve them (process), and submit them to the teacher (output)—you are a transformer.
+
+Your parents take your wish to buy that new game (input), think about it (process), and come up with the right decision (output)—they are transformers as well.
+
+But in the case of GPT, it's an AI Transformer. And in the AI Transformer, the way it processes the input is always going to be specific.
+
+An AI Transformer takes the input and predicts the next word (token, to be specific).
+
+Suppose there’s a person who can exactly predict your words—what you want to say—by listening to only half your sentence. Yeah, someone like your father.
+
+That's exactly how an AI Transformer works. It takes the input (in text), predicts the next letter or word, and gives that as output.
+
+Yes, that was all about it.
+
+Here's an example about all three terms combined:
+
+Suppose you want a candy. You told your father about it.
+
+He thought about it, went to the market, and bought the exact one that you wished for.
+
+But wait, how did he know about that exact candy you wanted—you never told him the name?
+
+But he knows. That's because he knows about your habits, your likes/dislikes, and everything about you. He's trained on your data.
+
+So now your father is also a:
+
+Generative → he can generate thoughts about buying you a candy.
+
+Pre-Trained → he's trained on your habits, wishes, likes, and dislikes.
+
+Human → takes your wish as an input, thinks about it (processes it) on the basis of his pre-trained data, and acts (output). But we can't call him a transformer.
