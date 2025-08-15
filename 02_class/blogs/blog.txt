@@ -1,0 +1,50 @@
+# System Prompts and Types of Prompting
+
+
+Hey there everyone, this is Tushar and in today's blog we are going to take a deep dive about Prompting in AI.
+
+Prompting is undoubetdly one of the important part of LLMs.
+
+In tech there is a rule called GIGO - means "Garbage Input Garbage Output".
+
+That means the quality of Output you receieve is best suited for the quality of Input you provide. This works exactly in the case of LLMs.
+
+The better quality of prompt you give, the better quality of ouput you receieve. And guess what, that's what "Prompt Engineering" is all about.
+
+But to understand that, we should first know about prompts, types of prompts and what makes a good prompt? 
+
+So without any further delay let's get started.
+
+
+
+Have you ever gone to GPT and asked it about "Explain this complex code step-by-step"?
+
+Yeah, that's exactly a prompt. Means whatever you give the LLM as your input text is a prompt. Now in general use cases, we do not understand the importance of prompts because LLMs are powerful enough that they can give quality answers for general questions with a low grade prompt as well.
+
+But in professional world, especially in GenAI, prompts and quality of prompts do make a lot of difference.
+
+
+Let's take an example.
+
+Suppose I go to GPT and ask "Hey GPT, give me the program for finding a prime number in JavaScript."
+
+And I open a new conversation and tell the GPT that: "Hey for this chat, you are my personal JS Trainer. You know nothing beyond JS, you are a JavaScript expert. If I ask anything that is not related to JavaScript, please don't answer me about that."
+
+and then I paste the same prompt to this conversation now.
+
+What do you think, Is there any difference?
+
+Yes, of course it is. Now the GPT is trained to perform like a JS expert. Now this is just one example.
+
+You can go ahead, provide more context to the model and get more "fine-tuned" replies.
+
+This is known as System Prompt. Providing context to the LLM so that it can answer as you want is the best way to increase the quality of the output.
+
+
+Now there are some types of System Prompting: 
+
+1. Zero Shot: Model is directly given with a task or query without any prior examples.
+
+2. Few Shots Prompting: You give examples to the LLM here regarding to how it should respond on a particular kind of query.
+
+Like the in the System Prompt you give 
