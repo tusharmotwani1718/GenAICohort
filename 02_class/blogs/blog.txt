@@ -1,50 +1,137 @@
-# System Prompts and Types of Prompting
+System Prompts and Types of Prompting
 
+Hey there everyone, this is Tushar, and in today's blog, we are going to take a deep dive into Prompting in AI.
 
-Hey there everyone, this is Tushar and in today's blog we are going to take a deep dive about Prompting in AI.
+Prompting is undoubtedly one of the most important parts of LLMs.
 
-Prompting is undoubetdly one of the important part of LLMs.
+In tech, there is a rule called GIGO, which means "Garbage In, Garbage Out."
 
-In tech there is a rule called GIGO - means "Garbage Input Garbage Output".
+This means the quality of the output you receive is directly tied to the quality of the input you provide. This works exactly the same way with LLMs.
 
-That means the quality of Output you receieve is best suited for the quality of Input you provide. This works exactly in the case of LLMs.
+The better quality prompt you give, the better quality output you receive. And guess what? That’s exactly what Prompt Engineering is all about.
 
-The better quality of prompt you give, the better quality of ouput you receieve. And guess what, that's what "Prompt Engineering" is all about.
+But before we get into that, we should first understand prompts, the types of prompts, and what makes a good prompt.
 
-But to understand that, we should first know about prompts, types of prompts and what makes a good prompt? 
+So without any further delay, let’s get started.
 
-So without any further delay let's get started.
+Have you ever gone to GPT and asked it something like, "Explain this complex code step-by-step"?
 
+Yeah, that’s exactly a prompt. It means whatever you give the LLM as your input text is considered a prompt.
+In general use cases, we may not think much about the importance of prompts because LLMs are powerful enough to give quality answers to simple questions, even with low-quality prompts.
 
+But in the professional world, especially in GenAI, prompts—and the quality of those prompts—make a huge difference.
 
-Have you ever gone to GPT and asked it about "Explain this complex code step-by-step"?
+Let’s take an example.
 
-Yeah, that's exactly a prompt. Means whatever you give the LLM as your input text is a prompt. Now in general use cases, we do not understand the importance of prompts because LLMs are powerful enough that they can give quality answers for general questions with a low grade prompt as well.
+Suppose I go to GPT and ask:
+"Hey GPT, give me the program for finding a prime number in JavaScript."
 
-But in professional world, especially in GenAI, prompts and quality of prompts do make a lot of difference.
+Now, imagine I open a new conversation and say:
+"Hey, for this chat, you are my personal JS Trainer. You know nothing beyond JavaScript, and you are a JavaScript expert. If I ask anything unrelated to JavaScript, please don’t answer me."
 
+Then I paste the same prime number prompt into this conversation.
 
-Let's take an example.
+Do you think there’s a difference?
 
-Suppose I go to GPT and ask "Hey GPT, give me the program for finding a prime number in JavaScript."
+Yes, absolutely! Now GPT is acting like a JS expert. This is just one example.
 
-And I open a new conversation and tell the GPT that: "Hey for this chat, you are my personal JS Trainer. You know nothing beyond JS, you are a JavaScript expert. If I ask anything that is not related to JavaScript, please don't answer me about that."
+You can go further, providing more context to the model to get even more fine-tuned responses.
 
-and then I paste the same prompt to this conversation now.
+This is known as a System Prompt—providing context to the LLM so that it can respond exactly the way you want. This is one of the best ways to improve output quality.
 
-What do you think, Is there any difference?
+Types of System Prompting
+1. Zero-Shot Prompting
 
-Yes, of course it is. Now the GPT is trained to perform like a JS expert. Now this is just one example.
+The model is directly given a task or query without any prior examples.
 
-You can go ahead, provide more context to the model and get more "fine-tuned" replies.
+2. Few-Shot Prompting
 
-This is known as System Prompt. Providing context to the LLM so that it can answer as you want is the best way to increase the quality of the output.
+You give the LLM examples showing how it should respond to a particular kind of query.
 
+For example, in the system prompt, you could write:
 
-Now there are some types of System Prompting: 
+*"Hey, for this chat, you are my personal JS Trainer. You know nothing beyond JavaScript, and you are a JavaScript expert. If I ask anything unrelated to JavaScript, please don’t answer me.
 
-1. Zero Shot: Model is directly given with a task or query without any prior examples.
+Any reply you give must start with this emoji: 👍
 
-2. Few Shots Prompting: You give examples to the LLM here regarding to how it should respond on a particular kind of query.
+Example:
+User: 'Hey GPT, give me the program for finding a prime number in JavaScript.'
+System: '👍 Sure, here’s the code for finding a prime number in JavaScript.'"*
 
-Like the in the System Prompt you give 
+This is how you can train an LLM for customized outputs.
+
+3. Chain of Thought (CoT) Prompting
+
+This is one of the most widely used prompting techniques for LLMs.
+Think of it like an LLM thinking to itself—analyzing and reasoning before giving the output. This can significantly improve accuracy.
+
+Humans do this too: when we want to be sure we don’t make mistakes, we think carefully before speaking.
+
+The CoT algorithm makes the LLM follow a similar step-by-step thought process to enhance output accuracy.
+
+If you’ve used features like "DeepThink", "DeepSearch", or "Think Longer" in LLM tools, that’s exactly the idea behind them.
+
+To implement this, you just modify the system prompt.
+When you click on the DeepSearch button, you’re essentially adding this instruction behind the scenes.
+
+Here’s an example CoT prompt:
+
+"You are an AI assistant that works in a step-by-step process: start, think, and output.
+Before answering any user query, think through the topic thoroughly.
+Always proceed step-by-step, moving to the next step only after completing the current one.
+You may think multiple times between the start and output in detail.
+You can only provide one step of the answer at a time.
+Always present your output in a way that shows detailed thinking."
+
+This is just a small example. Professionals often use much larger system prompts with multiple examples.
+
+Persona-Based Prompting
+
+Persona-based prompting is when you design the chatbot to behave like a specific identity.
+
+Have you ever seen an AI bot of a particular person on their website?
+That’s one of the best implementations of persona-based prompting.
+
+It’s widely used in EdTech, where users are made to feel as if a person is available 24/7 to answer their questions.
+
+Again, to implement this, you modify the system prompt.
+
+Here’s an example persona prompt for Hitesh Choudhary from Chai aur Code:
+
+*"You are an AI persona of a man named Hitesh Choudhary. Hitesh is a nice guy, an excellent coder, a brilliant teacher, and an entrepreneur with years of experience in the EdTech industry.
+
+He is generally chill, a great YouTuber, and very passionate about JavaScript and Python. His Hindi channel, 'Chai aur Code,' has over 700k subscribers. He also runs an English channel called 'Hitesh Choudhary.'
+
+He is retired from corporate roles but is still highly respected in the community.
+
+Here’s more about him: 'Retired from corporate, full-time YouTuber, ex-founder of LCO (acquired), ex-CTO, Sr. Director at PW. Two YT channels (950k & 470k), visited 43 countries.'
+
+LinkedIn: www.linkedin.com/in/hiteshchoudhary
+
+Hitesh’s speaking style in 'Chai aur Code' is friendly, engaging, and carries a bit of desi swag. He maintains a casual vibe, often mentioning chai to make concepts relatable. He motivates beginners and explains technical topics in simple language.
+
+He generally speaks in Hindi and starts videos with: 'Haanji, to kaise hai aap sabhi?'
+
+Here are some example statements from him to understand his vocabulary better:"*
+
+Intro Style:
+"Hanji, namaste doston! Swagat hai aapka ek aur naye video mein, Chai aur Code ke saath. Aaj hum banayenge ek mast project, toh apni chai ka cup uthao aur chalo shuru karte hain!"
+
+Motivating Students:
+"Doston, coding mein galtiyan toh banta hai boss! Tum galti karoge, usse seekhoge, aur ek din pro ban jaoge. Bas apni chai thandi nahi hone dena, aur code chalu rakho!"
+
+Engaging with Audience:
+"Ab yeh wala code dekho, kya lagta hai, ye kaam karega ya nahi? Comment mein batao, aur agar stuck ho toh mujhe bolna, hum saath mein debug karenge, chai ke saath!"
+
+Ending a Session:
+"Bas doston, aaj ke liye itna hi. Agar video pasand aaya toh like karo, channel subscribe karo, aur apni chai ke saath agla video wait karo. Chaliye milte hai fir next time!"
+
+That’s how you can train a bot to respond like a specific person.
+
+The more text, examples, and context you provide, the better the output.
+
+Pro Tip: While designing persona bots, include tweets, video transcripts, or social media posts from the personality. This helps the LLM better capture their tone and style.
+
+So that’s it from my side today.
+Hope you enjoyed the blog.
+Thank you, and goodbye!

@@ -30,9 +30,6 @@ Intro Style:
 
 "Hanji, namaste doston! Swagat hai aapka ek aur naye video mein, Chai aur Code ke saath. Aaj hum banayenge ek mast project, toh apni chai ka cup uthao aur chalo shuru karte hain!"
 
-Explaining a Concept:
-
-"Dekho yaar, ye JavaScript ka concept bilkul chai ke sip jaisa hai—pehle thoda complex lagega, par ek baar samajh gaya na, toh mazaa hi aa jayega. Chalo, ek example se samajhte hain."
 
 Motivating Students:
 
@@ -44,7 +41,7 @@ Engaging with Audience:
 
 Ending a Session:
 
-"Bas doston, aaj ke liye itna hi. Agar video pasand aaya toh like karo, channel subscribe karo, aur apni chai ke saath agla video wait karo. Milte hain next time, tab tak keep coding!"
+"Bas doston, aaj ke liye itna hi. Agar video pasand aaya toh like karo, channel subscribe karo, aur apni chai ke saath agla video wait karo. Chaliye milte hai fir next time!"
 
 Project-Based Teaching:
 

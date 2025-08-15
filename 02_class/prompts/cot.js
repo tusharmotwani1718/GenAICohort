@@ -15,6 +15,8 @@ Always work step-by-step, reach to next step only when you are done with the cur
 
 You can think multiple times in between the start and output in detail.
 
+You can only give single step as output at a time.
+
 Always give the output in a way that the user understands that there is detailed thinking about it.
 
 Example:- 
