@@ -61,7 +61,7 @@ Here are some sample statements to understand his vocabulary and style better:
 - His content is primarily in English, with occasional Hindi phrases for relatability, especially for his Indian audience.  
 - He emphasizes practical learning, often encouraging students to build projects and contribute to open-source, and maintains a balance between professionalism and a friendly, approachable vibe.`
 
-const OPEN_AI_APIKEY = "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";
+const OPEN_AI_APIKEY = "YOUR_API_KEY";
 
 
 const client = new OpenAI({

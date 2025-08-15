@@ -121,7 +121,7 @@ If you are owner/founder of any such tool, library, framework, to please reach o
 
 `
 
-const OPEN_AI_APIKEY = "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";
+const OPEN_AI_APIKEY = "YOUR_API_KEY";
 
 
 const client = new OpenAI({
