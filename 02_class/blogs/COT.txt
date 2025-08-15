@@ -1,0 +1,117 @@
+Building a Thinking Model from a Non-Thinking Model Using Chain-of-Thought
+
+Hey there everyone, this is Tushar, and in today’s blog, we’re going to unpack something super exciting—how you can take a “non-thinking” AI model and turn it into a “thinking” one using Chain-of-Thought (CoT) prompting.
+
+Sounds cool, right?
+Let’s dive in.
+
+Non-Thinking vs. Thinking Models
+
+Before we get into the “how,” let’s understand the “what.”
+
+A non-thinking model is like that friend who blurts out the first thing that comes to their mind. You ask a question, and boom—instant answer. Quick, but not always accurate.
+
+A thinking model, on the other hand, is like your cautious friend who goes,
+“Wait… let me think this through step-by-step,” and then gives you the answer. This usually means fewer mistakes and better reasoning.
+
+Why Chain-of-Thought Is the Game Changer
+
+In tech, there’s a saying: “Slow is smooth, and smooth is fast.”
+When an AI model takes the time to think, it’s more likely to give you accurate and logical answers.
+
+Chain-of-Thought prompting is basically telling the AI:
+“Don’t just answer—think out loud (step-by-step) before you answer.”
+
+Turning a Non-Thinking Model into a Thinking One
+
+So, how do you take a model that usually responds instantly and get it to “think” first?
+Simple—you adjust the system prompt.
+
+Here’s the basic idea:
+
+Normally, you just give a direct question.
+
+With CoT, you add an instruction to think through the problem step-by-step before giving the final output.
+
+Example 1: Without Chain-of-Thought
+
+Prompt: “What’s 27 × 43?”
+Model: “1161” (Quick, but may be wrong if it guessed.)
+
+Example 2: With Chain-of-Thought
+
+System Prompt:
+
+"You are an AI assistant that reasons step-by-step before answering. For every question, first break the problem into smaller steps, explain each step, and only then give the final answer."
+
+User Prompt: “What’s 27 × 43?”
+Model:
+“Step 1: 27 × 40 = 1080
+Step 2: 27 × 3 = 81
+Step 3: 1080 + 81 = 1161
+Final Answer: 1161 ✅”
+
+The difference?
+The model didn’t just spit out a number—it showed its work. This is critical for accuracy.
+
+The CoT Formula for Building Thinking Models
+
+Here’s a step-by-step way to implement CoT prompting:
+
+Define the Role
+Tell the model it’s a careful reasoner.
+Example: “You are a logical thinker who solves problems step-by-step.”
+
+Give Process Instructions
+Ask it to think through the answer before speaking.
+Example: “Do not give the final answer until all steps are shown.”
+
+Force Sequential Thinking
+In some cases, limit the output to one step per message so the model can’t jump to the conclusion.
+
+Add Examples
+Show how you expect the reasoning to look.
+Example: “When solving math problems, break them down into sub-calculations.”
+
+When to Use Chain-of-Thought
+
+Math & Logic Problems
+Prevents silly calculation mistakes.
+
+Programming Debugging
+The model can narrate its debugging approach.
+
+Complex Planning
+Works great for step-by-step strategies or project plans.
+
+Multi-step Reasoning Questions
+Anything that benefits from intermediate steps.
+
+Pro Tip: Combine CoT with Few-Shot Prompting
+
+Want an even smarter “thinking” model?
+Give it examples of how you want the thought process to look.
+
+Example system prompt:
+
+"You are a step-by-step reasoning assistant. Follow this pattern:
+Example:
+Q: What’s the sum of the first 5 prime numbers?
+Step 1: List the first 5 prime numbers: 2, 3, 5, 7, 11
+Step 2: Add them: 2 + 3 + 5 + 7 + 11 = 28
+Final Answer: 28
+
+Now follow the same process for all queries."
+
+Final Thoughts
+
+The difference between a non-thinking and a thinking model is like the difference between guessing and problem-solving.
+
+By adding Chain-of-Thought prompting, you’re basically teaching the AI to slow down, reason, and arrive at more reliable answers.
+
+So next time you want quality over speed, remember—don’t just ask the model to answer.
+Ask it to think.
+
+That’s it for today.
+Hope you enjoyed this deep dive into building a thinking model from a non-thinking one.
+See you in the next blog—until then, keep experimenting, keep prompting, and keep thinking! 🧠
