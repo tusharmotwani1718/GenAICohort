@@ -1,96 +1,109 @@
-import { OpenAI } from "openai";
-import dotenv from 'dotenv';
-dotenv.config();
+import 'dotenv/config';
+import { OpenAI } from 'openai';
 
-
-// Chain of Thoughts (COT) Prompt: Means LLM's talking to itself, rethinking before giving the output
-
-// "DeepSearch" in deepseek and "Think Longer" in chatgpt use the same approach.
-
-
-const systemPrompt = `
-You are an AI assistant that works on step-wise process of start, think and output.
-Before you give any output to the user about any input prompt or query, think on the topic thoroughly.
-Always work step-by-step, reach to next step only when you are done with the current one.
-
-You can think multiple times in between the start and output in detail.
-
-You can only give single step as output at a time.
-
-Always give the output in a way that the user understands that there is detailed thinking about it.
-
-Example:- 
-{
-User: Hey! please tell me about the output of this js code: "
-function add(a, b){
-return a+b;
-}
-
-console.log(add(3, 4));
-
-
-Assistant:
-
-- START: Okay, So the user wants me to give the output of a js code.
-- THINK: Let me go through the whole code...
-- THINK: Okay, so here's a function add which returns the addition of two numbers, taken in the argument.
-- THINK: Let me first think about a function. A function is block of code which makes the program reusable.
-- THINK: In javascript, one common way of declaring functions is by using function keyword as the user has proceeded with.
-- THINK: In the program there are two parameters passed in the function named add.
-- THINK: Then, there is a return statement in the function.
-- THINK: LET me recall that the return statement exists the functions, remove it from the call stack and returns the program flow to that line of code from where it was called.
-- THINK: Here, the user returns the arithmetic sum of the input parameters.
-- THINK: At last, there is a console.log(add(3, 4)). So, the arguments for the function now are 3 and 4.
-- THINK: 3 + 4 = 7, hence the program will print 7 in the console output.
-- OUTPUT: The program: function add(a, b){
-return a+b;
-}
-
-console.log(add(3, 4)); will print 7 in the console output.
-"
-}
-
-
-This was the example about how you should give the output...
-You must give the output step-by-step only and one step at a time.
-
-Return the response in json format like this:
-
-
-{
-    step: "START",
-    message: // content goes here
-}
-
-`
-
-const openai = new OpenAI({
-    apiKey: process.env.OPEN_AI_APIKEY,
-    // baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
+const client = new OpenAI({
+    apiKey: process.env.OPEN_AI_APIKEY
 });
 
-const response = await openai.responses.create({
-    model: "gpt-4o-mini",
-    input: [
-        {
-            role: "system",
-            content: systemPrompt
-        },
-        {
-            role: "user",
-            content: `Please can you give me the output for this code:
-            function add(a, b){
-return a+b;
+async function main() {
+  // These api calls are stateless (Chain Of Thought)
+  const SYSTEM_PROMPT = `
+    You are an AI assistant who works on START, THINK and OUTPUT format.
+    For a given user query first think and breakdown the problem into sub problems.
+    You should always keep thinking and thinking before giving the actual output.
+    Also, before outputing the final result to user you must check once if everything is correct.
+
+    Rules:
+    - Strictly follow the output JSON format
+    - Always follow the output in sequence that is START, THINK, EVALUATE and OUTPUT.
+    - After evey think, there is going to be an EVALUATE step that is performed manually by someone and you need to wait for it.
+    - Always perform only one step at a time and wait for other step.
+    - Alway make sure to do multiple steps of thinking before giving out output.
+
+    Output JSON Format:
+    { "step": "START | THINK | EVALUATE | OUTPUT", "content": "string" }
+
+    Example:
+    User: Can you solve 3 + 4 * 10 - 4 * 3
+    ASSISTANT: { "step": "START", "content": "The user wants me to solve 3 + 4 * 10 - 4 * 3 maths problem" } 
+    ASSISTANT: { "step": "THINK", "content": "This is typical math problem where we use BODMAS formula for calculation" } 
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "Lets breakdown the problem step by step" } 
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "As per bodmas, first lets solve all multiplications and divisions" }
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" }  
+    ASSISTANT: { "step": "THINK", "content": "So, first we need to solve 4 * 10 that is 40" } 
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "Great, now the equation looks like 3 + 40 - 4 * 3" }
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "Now, I can see one more multiplication to be done that is 4 * 3 = 12" } 
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "Great, now the equation looks like 3 + 40 - 12" } 
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "As we have done all multiplications lets do the add and subtract" } 
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "so, 3 + 40 = 43" } 
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "new equations look like 43 - 12 which is 31" } 
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" } 
+    ASSISTANT: { "step": "THINK", "content": "great, all steps are done and final result is 31" }
+    ASSISTANT: { "step": "EVALUATE", "content": "Alright, Going good" }  
+    ASSISTANT: { "step": "OUTPUT", "content": "3 + 4 * 10 - 4 * 3 = 31" } 
+  `;
+
+  const messages = [
+    {
+      role: 'system',
+      content: SYSTEM_PROMPT,
+    },
+    {
+      role: 'user',
+      content: 'Write a code in JS to find the square root of a number without using inbuilt function',
+    },
+  ];
+
+  while (true) {
+    const response = await client.chat.completions.create({
+      model: 'gpt-4.1-nano',
+      messages: messages,
+    });
+
+    const rawContent = response.choices[0].message.content;
+    const parsedContent = JSON.parse(rawContent);
+
+    messages.push({
+      role: 'assistant',
+      content: JSON.stringify(parsedContent),
+    });
+
+    if (parsedContent.step === 'START') {
+      console.log(`🔥`, parsedContent.content);
+      continue;
+    }
+
+    if (parsedContent.step === 'THINK') {
+      console.log(`\t🧠`, parsedContent.content);
+
+      // Todo: Send the messages as history to maybe gemini and ask for a review and append it to history
+      // LLM as a judge techniuqe
+      messages.push({
+        role: 'developer',
+        content: JSON.stringify({
+          step: 'EVALUATE',
+          content: 'Nice, You are going on correct path',
+        }),
+      });
+
+      continue;
+    }
+
+    if (parsedContent.step === 'OUTPUT') {
+      console.log(`🤖`, parsedContent.content);
+      break;
+    }
+  }
+
+  console.log('Done...');
 }
 
-console.log(add(3, 4));`
-        },
-        {
-            role: "assistant",
-            content: "Okay, the user wants me to determine the output of the provided JavaScript code snippet."
-        }
-    ],
-});
-
-
-console.log(response.output_text);
+main();
