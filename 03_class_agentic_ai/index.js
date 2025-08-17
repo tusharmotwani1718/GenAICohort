@@ -97,7 +97,7 @@ async function main() {
     {
       role: 'user',
       content:
-        'In the current directly, read the changes via git and push the changes to github with good commit message',
+        'Create a todo directory in my current folder and create a todo app inside that using html, css and js',
     },
   ];
 
