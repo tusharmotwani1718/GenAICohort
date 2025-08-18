@@ -1,0 +1,90 @@
+# AI Agents
+
+
+Hey there everyone, Tushar this side! and in today's blog, we are going to talk about another exciting topic that is infact one of the most money making applications of genAI and that's "Agentic AI".
+
+
+In this blog, you will understand all about Agents and how they work with LLMs.
+
+
+So without any further delay, let's get started.
+
+
+LLMs are very powerful but still by their default nature, they can-not perform day-to-day tasks.
+
+Suppose you want to know about the current weather of your city and you asked to "ChatGPT" about it.
+
+What do you think would be the response? 
+
+Obviously, a message like "Sorry! we cannot access the current weather details of your city"
+
+But what's the reason? LLMs know everything so why they can't tell the weather details of your city?
+
+See, LLMs are magic, they are just some complex tools trained over a large dataset and insane amount of time. But they are still tools.
+
+The important point to note here is that LLMs are pre trained over some data-set.
+
+They only have the knowledge from this dataset, plus what you provide them in context.
+
+
+Now the dataset is not of today, its outdated. Maybe the LLM was trained some weeks ago or a year ago, so the dataset is limited till that particular time only. The LLMs do not have access to real time knowledge (until you manually provide them in system context), because they are not just trained on it.
+
+
+So if you will ask an LLM which was trained a year ago about the current weather of your city, how it could tell you that?
+
+
+Okay so now its clear that LLMs can't access real time data. So what's the solution for that?
+
+One way can be to regularly update the LLMs with the real time data. Maybe the owners can update the LLM everyday about that days news, current affairs, and everything. 
+
+But that's not practically possible to get the LLM updated each and every day and release the newer versions almost everyday.
+
+
+Another way could be to provide tools to the LLM. Suppose a user asked about the current weather of his city, if we somehow make the LLM go to the google and search about the weather details of the particular city and respond back to the user, our problem would be solved.
+
+
+Now that's exactly what agents do for LLMs. Agents are simple tools that can perform a real time action (that the LLM can't do on itself), and respond to the LLM.
+
+
+Think of it like a Brain with Hands and Legs. 
+
+The brain has enormous knowledge and thinking ability, but if it want to perform any action can it do without the organs or limbs, ofcourse no. 
+
+The agents are exactly the limbs for the LLM(brain).
+
+
+If you are a programmer, you can understand the agentic tools of something like programming functions. Can you write a function to get the current weather details of a city by the city-name, if you can then congratulations you have successfully built an agentic tool that can help LLM to access real time weather details of a city.
+
+Yes, agents are just these tools which empower the LLM to perform real time actions.
+
+Here's a sample program in javascript to get the weather details of a city by its name:
+async function getWeatherDetailsByCity(cityname = '') {
+  const url = `https://wttr.in/${cityname.toLowerCase()}?format=%C+%t`;
+  const { data } = await axios.get(url, { responseType: 'text' });
+  return `The current weather of ${cityname} is ${data}`;
+}
+
+Now you just have to tell your LLM in system prompt that it has the access of this tool named as 'getWeatherDetailsByCity' and whenever user queries about weather details of any city, the LLM can use the tool to get the data and respond back to user.
+
+
+And that's it, you now have your very first own agentic tool working.
+
+
+
+
+
+We build a tool to fetch the details of available products at Amazon and provide its access to any LLM. Now the LLM can also fetch the list of available products at Amazon and display to the user.
+
+
+We build a tool to call an api and create a user entry in our database and provide its access to the LLM. Now the LLM can also create the entries on behalf of us.
+
+
+Now suppose we build large number of such tools which can perform real time tasks and provide their access to any LLM.
+
+We can empower the LLM to perform all the real time actions on behalf of us. Anything we want to do, we can just say it to LLM. It can be anything from ordering the food to writing code, we can do this all just with a single query to the LLM and it can use the agentic tools to get the job done.
+
+
+
+At last if you are a programmer remember, agents are just functions which are accessed to the LLMs so that they can perform real time actions on behalf of us.
+
+So that was all from my side today. Hope you enjoyed the blog. Good Bye!
