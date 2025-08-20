@@ -12,6 +12,7 @@ function FileUpload() {
   const [textName, setTextName] = useState("");
   const [urlInput, setUrlInput] = useState("");
   const [urlName, setUrlName] = useState("");
+  const [buttonLoading, setButtonLoading] = useState(false);
 
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
   const selectedFile = watch("document");
@@ -26,6 +27,7 @@ function FileUpload() {
 
   const onSubmit = async (data) => {
     try {
+      setButtonLoading(true);
       if (mode === "text") {
 
         const response = await axios.post(`${import.meta.env.VITE_API_UPLOAD_TEXT}`, {
@@ -73,6 +75,9 @@ function FileUpload() {
       }
     } catch (error) {
       console.error("Error: ", error);
+    }
+    finally{
+      setButtonLoading(false);
     }
   };
 
@@ -196,6 +201,7 @@ function FileUpload() {
                 placeholder="Give your text a name"
                 value={textName}
                 onChange={(e) => setTextName(e.target.value)}
+                required
               />
             </>
 
@@ -211,6 +217,7 @@ function FileUpload() {
                 placeholder="Give your URL a name"
                 value={urlName}
                 onChange={(e) => setUrlName(e.target.value)}
+                required
               />
             </>
           )
@@ -229,7 +236,7 @@ function FileUpload() {
           }
           className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 disabled:from-gray-600 disabled:to-gray-700 text-white py-3 rounded-2xl font-medium transition-all duration-200 shadow-lg hover:shadow-orange-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {mode === "text" ? "Brew Context" : "Upload Document"}
+          {mode === "text" || mode === "url" ? `${buttonLoading ? "Brewing..." : "Brew Context"}` : `${buttonLoading ? "Uploading..." : "Upload File"}`}
         </button>
       </form>
     </div >
