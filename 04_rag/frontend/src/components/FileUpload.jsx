@@ -9,11 +9,14 @@ import { useEffect } from "react";
 function FileUpload() {
   const [mode, setMode] = useState("text");
   const [textInput, setTextInput] = useState("");
+  const [textName, setTextName] = useState("");
+  const [urlInput, setUrlInput] = useState("");
+  const [urlName, setUrlName] = useState("");
 
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
   const selectedFile = watch("document");
 
-  const { uploadFile, fileName } = useFile();
+  const { uploadFile } = useFile();
 
   const handleModeChange = (newMode) => {
     setMode(newMode);
@@ -24,8 +27,32 @@ function FileUpload() {
   const onSubmit = async (data) => {
     try {
       if (mode === "text") {
-        console.log("Indexing text:", textInput);
-      } else {
+
+        const response = await axios.post(`${import.meta.env.VITE_API_UPLOAD_TEXT}`, {
+          text: textInput,
+          textName: textName
+        })
+
+
+        uploadFile(textName); // upload the context.
+
+        alert("text uploaded successfully");
+
+      }
+
+      else if (mode === "url") {
+        const response = await axios.post(`${import.meta.env.VITE_API_UPLOAD_URL}`, {
+          url: urlInput,
+          urlName
+        })
+
+
+        uploadFile(urlName); // upload the context.
+
+        alert("url uploaded successfully");
+      }
+
+      else {
         const file = data.document[0];
         const formData = new FormData();
         formData.append("file", file);
@@ -78,6 +105,15 @@ function FileUpload() {
           Text
         </button>
         <button
+          onClick={() => handleModeChange("url")}
+          className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${mode === "url"
+            ? "bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg shadow-orange-500/20"
+            : "text-gray-300 hover:text-white hover:bg-gray-600/30"
+            }`}
+        >
+          URL
+        </button>
+        <button
           onClick={() => handleModeChange("file")}
           className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-200 ${mode === "file"
             ? "bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg shadow-orange-500/20"
@@ -88,18 +124,28 @@ function FileUpload() {
           File
         </button>
       </div>
-     
+
 
       {/* Form */}
       <form onSubmit={handleSubmit(onSubmit)} className="flex-1 flex flex-col">
         <div className="flex-1 mb-6">
-          {mode === "text" ? (
-            <textarea
-              className="w-full h-full bg-gray-700/40 border border-gray-600/40 text-white rounded-2xl p-4 resize-none focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400/50 placeholder-gray-400 text-sm backdrop-blur-sm shadow-inner"
-              placeholder="Paste your text content here to brew better AI responses..."
-              value={textInput}
-              onChange={(e) => setTextInput(e.target.value)}
-            />
+          {mode !== "file" ? (
+            mode === "text" ? (
+              <textarea
+                className="w-full h-full bg-gray-700/40 border border-gray-600/40 text-white rounded-2xl p-4 resize-none focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400/50 placeholder-gray-400 text-sm backdrop-blur-sm shadow-inner"
+                placeholder="Paste your text content here to brew better AI responses..."
+                value={textInput}
+                onChange={(e) => setTextInput(e.target.value)}
+              />
+            ) : (
+              <input
+                type="url"
+                className="w-full h-full bg-gray-700/40 border border-gray-600/40 text-white rounded-2xl p-4 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400/50 placeholder-gray-400 text-sm backdrop-blur-sm shadow-inner"
+                placeholder="Paste your URL here to brew better AI responses..."
+                value={urlInput}
+                onChange={(e) => setUrlInput(e.target.value)}
+              />
+            )
           ) : (
             <div className="h-full relative">
               <input
@@ -140,6 +186,40 @@ function FileUpload() {
           )}
         </div>
 
+
+        {/* Text Name */}
+        {
+          mode == "text" && (
+            <>
+
+              <input type="text" name="textName" className="bg-gray-700/40 border border-gray-600/40 text-white rounded-2xl p-4 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400/50 placeholder-gray-400 text-sm backdrop-blur-sm shadow-inner my-4"
+                placeholder="Give your text a name"
+                value={textName}
+                onChange={(e) => setTextName(e.target.value)}
+              />
+            </>
+
+          )
+        }
+
+        {/* url name */}
+        {
+          mode == "url" && (
+            <>
+
+              <input type="text" name="urlName" className="bg-gray-700/40 border border-gray-600/40 text-white rounded-2xl p-4 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400/50 placeholder-gray-400 text-sm backdrop-blur-sm shadow-inner my-4"
+                placeholder="Give your URL a name"
+                value={urlName}
+                onChange={(e) => setUrlName(e.target.value)}
+              />
+            </>
+          )
+        }
+
+
+
+
+
         {/* Submit Button */}
         <button
           type="submit"
@@ -152,7 +232,7 @@ function FileUpload() {
           {mode === "text" ? "Brew Context" : "Upload Document"}
         </button>
       </form>
-    </div>
+    </div >
   );
 }
 

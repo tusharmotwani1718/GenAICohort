@@ -2,7 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import {
     chat,
-    indexing
+    indexing,
+    indexTextContext,
+    indexUrlContext
 } from './src/index.js'
 import multer from 'multer';
 
@@ -55,12 +57,51 @@ app.post('/api/indexing/uploadFile', upload.single("file"), async (req, res) => 
     }
 })
 
+/**
+ * ✍️ Index raw text as context
+ */
+app.post("/api/indexing/text", async (req, res) => {
+    try {
+        const { text, textName } = req.body;
+
+        const result = await indexTextContext(text, textName);
+
+        res.json(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: error.message ?? "Internal server error.",
+        });
+    }
+});
+
+
+/**
+ * 🌐 Index webpage content from a URL
+ */
+app.post("/api/indexing/url", async (req, res) => {
+    try {
+        const { url, urlName } = req.body;
+
+        const result = await indexUrlContext(url, urlName);
+
+        res.json(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: error.message ?? "Internal server error.",
+        });
+    }
+});
+
 app.post('/api/retreival/chat', async (req, res) => {
     try {
         const { fileName, userQuery, inputs } = req.body;
 
-        if(!fileName || !userQuery) {
-           return res.json({
+        if (!fileName || !userQuery) {
+            return res.json({
                 success: false,
                 message: "Please provide fileName and userQuery"
             })
@@ -81,6 +122,8 @@ app.post('/api/retreival/chat', async (req, res) => {
         })
     }
 })
+
+
 
 app.listen(3001, () => {
     console.log('Server running on http://localhost:3001');

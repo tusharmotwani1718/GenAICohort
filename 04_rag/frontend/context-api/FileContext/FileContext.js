@@ -2,9 +2,10 @@ import { createContext, useContext } from "react";
 
 
 export const FileContext = createContext({
+    contentType: "text", // rawText or File
     isFileUploaded: false,
     fileName: null,
-    uploadFile: () => {}
+    uploadFile: () => {},
 })
 
 
