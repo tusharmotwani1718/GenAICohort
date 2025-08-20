@@ -5,10 +5,10 @@ import envConf from '../envconf.js';
 
 
 const client = new OpenAI({
-    apiKey: envConf.openAIApiKey 
+    apiKey: envConf.openAIApiKey
 });
 
-async function chat(userQuery) {
+async function chat(fileName, userQuery, inputs) {
 
     // make the LLM ready to create embeddings:
     const embeddings = new OpenAIEmbeddings({
@@ -19,7 +19,7 @@ async function chat(userQuery) {
     const vectorStore = await QdrantVectorStore.fromExistingCollection(embeddings,
         {
             url: "http://localhost:6333",
-            collectionName: "nodejs-pdf"
+            collectionName: `collection-${fileName}`
         }
     )
 
@@ -34,24 +34,39 @@ async function chat(userQuery) {
 
     Also give the source (page number/title/chapter number) from the pdf too from which you have extracted info.
 
-    Do not answer anything that is beyond the available context:
+    Do not answer anything that is beyond the available context.
+
+    Do not give your reply with html or semantic tags like backslash n or 'br', if you want a line break or new line give the spacing from your side only, not with tags.
+    Strictly exclude line break tags and other tags to fromat the response, include them only when they should available at response as raw text
 
     Context: 
     ${JSON.stringify(relevantChunks)}
     `
 
+    inputs = [
+        { role: "system", content: systemPrompt },
+        ...inputs
+    ]
+
+
+
     const response = await client.chat.completions.create({
         model: "gpt-4o-mini",
-        messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: userQuery }
-        ]
+        messages: inputs
     })
 
-    console.log(`🤖: ${response.choices[0].message.content}`)
+    // console.log(`🤖: ${response.choices[0].message.content}`)
+
+    return `🤖: ${response.choices[0].message.content}`
+
 }
 
 
-const userQuery = "Can you please tell me about debugging in nodejs?";
-chat(userQuery);
+// to use the function directly from backend
+
+// const userQuery = "Can you please tell me about debugging in nodejs?";
+// chat(userQuery); // remove fileName from the parameter in the chat function while using it directly from the backend.
+
+
+export default chat;
 
