@@ -1,10 +1,17 @@
 In the current directory i.e 04_rag:
 
+<!-- Start the docker -->
+
+run
+docker compose up -d
+
+
+<!-- Start Backend server -->
 run 
 npm install (to install the backend dependencies)
 npm run script (to run the backend server)
 
-
+<!-- Start frontend server -->
 open another terminal:
 switch to frontend directory.
 
