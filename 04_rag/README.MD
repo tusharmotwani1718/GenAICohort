@@ -19,3 +19,6 @@ npm run dev
 
 
 <!-- I have also uploaded sample env files in the frontend and root directory as .env.sample so that you can create you .env and take the variable names easily from there -->
+
+
+<!-- here's a demo of the webapp: https://www.linkedin.com/posts/tushar-motwani-89tm_generativeai-rag-chaicode-activity-7363874536347295745-ahXQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFvYzTIBTNS6LmGojDTO1R7m22tAs_i2UiA -->
