@@ -1,0 +1,261 @@
+[
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:00:00.160",
+    "end": "00:00:21.520",
+    "text": "Hey everyone and welcome to an exciting new course on Node js. In this particular course we are going to learn Node js that what is Node js and how you can build web servers and a lot of cool stuff with Node js. As a quick introduction, my name is Piyush Kirk and I am going to be your instructor throughout this course."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:00:21.520",
+    "end": "00:00:46.390",
+    "text": "I'm a full stack developer and a YouTuber and I have built and created a lot of content on my YouTube channel as well. So this particular course on Node js is actually very close to my heart. So I have been working with Node js for over, I guess 8 years, around 8 years and I have built a lot of cool stuff around it and we are going to discuss that how you can use Node js."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:00:46.390",
+    "end": "00:01:03.850",
+    "text": "And this is going to be an absolute beginner to intermediate course. The only prerequisite for this particular course is if you know JavaScript. Okay? So you should know basics of JavaScript because ultimately we are going to code a lot of things in JavaScript, so only that is the prerequisite."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:01:03.850",
+    "end": "00:01:27.070",
+    "text": "Rest everything, each and everything will be taught in this particular class. So in this particular course we are going to cover like from the absolute basics like what is Node js, how Node js was built and how Node js internally works all the way to integrating Postgres in our, Node js application and building RESTful APIs along with authentication, JWT sessions, cookies and a lot of more stuff."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:01:27.620",
+    "end": "00:01:45.820",
+    "text": "So I welcome you again to this premium Node js course. And with that let's start our very first lecture on what is Node js? So what is Node js? Right? So whenever we talk about or whenever I ask my learners that, hey, can you tell me what is Node js?"
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:01:45.820",
+    "end": "00:02:02.460",
+    "text": "I get few answers like, hey, it's a framework, or some people say it's a library. So I'm sure that you are also confused that if it is a framework or a library. So let's understand that what exactly is Node js? Now before understanding what is Node js, let's understand this js part."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:02:02.460",
+    "end": "00:02:22.550",
+    "text": "js stands for JavaScript. Do you even know that what is JavaScript? Let's try to understand this JavaScript thing. So let's say that you can see that right now I have a browser here. And on this particular browser I have opened my personal portfolio website that is on puresha.dev now this browser can only understand three languages, right?"
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:02:22.550",
+    "end": "00:02:41.350",
+    "text": "This browser can only understand HTML, CSS and JavaScript. HTML that provides the basic layout, basic structure to this particular website, CSS is for the styling part and JavaScript is for the functionality part. Now tell me one thing, is there any other language that a browser can understand?"
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:02:41.910",
+    "end": "00:02:58.690",
+    "text": "Not really. At least not at the time of recording this video. So these are the only three languages which builds whole Internet, which builds whole websites. Okay, now here, one interesting part is that there is something known as JavaScript engine inside the browser."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:02:58.690",
+    "end": "00:03:12.850",
+    "text": "Let me show you one thing. For example, if I open my browser right here, so you can see that I have a whiteboard open and it's a browser. And let's say I just open any website that is like google.com, right? I hope you know what is google.com a huge shout out to google.com amazing search engine."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:03:13.410",
+    "end": "00:03:37.710",
+    "text": "So if I go into the console, right, you can see I'm opening my console. In this particular console I can write any valid JavaScript code. For example, if I say two plus two, I'm getting four. If I say console log and I say hello, what you will notice is that yes, I am able to run this code without any error, without any issue and I'm getting the hello as console log."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:03:37.710",
+    "end": "00:04:00.440",
+    "text": "How am I able to run this GS code inside the console? Because when you download this browser, right now I'm using a Chrome browser. When you download this browser, a js engine is automatically shipped along. So every browser, whichever you download has something known as JavaScript engine inside them."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:04:00.440",
+    "end": "00:04:18.060",
+    "text": "With this JavaScript engine, your browser is able to compile and execute JavaScript code. If your browser does not have this JavaScript engine, there is no way to run a JavaScript code. So repeating my question again, how am I able to run this code here?"
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:04:18.060",
+    "end": "00:04:36.540",
+    "text": "Because I'm using a Chrome and chrome has a JavaScript engine. If this JavaScript engine was not there, this, there is no chance that this code is going to execute right now with that, now we have a knowledge that, okay, there are three languages of a browser and JavaScript engine is the one that is responsible for running the JavaScript."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:04:36.540",
+    "end": "00:05:02.660",
+    "text": "Now JavaScript, due to this JavaScript engine which is directly embedded into a browser, there is one limitation. The limitation is that can you run JavaScript outside the browser? I'm asking you that, can you guys run JavaScript outside the browser? The answer is no. Reason for that is because JavaScript engine is embedded into the browsers, it is inside the browser."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:05:02.660",
+    "end": "00:05:23.960",
+    "text": "So because on my system I cannot have this GS engine thing. There is no that I can run JavaScript outside the browser. And that's even fine. That's fine because when JavaScript was written, when JavaScript was developed, it was developed for the browsers, right? The whole purpose of JavaScript was to provide the interactivity to browsers."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:05:23.960",
+    "end": "00:05:39.200",
+    "text": "And that is where GS Engine was born and browsers were given the js engine, right? So it's a limitation, but that's a required thing, right? Now every browser, like There are various JavaScript engines. For example, there is this V8 engine which Chrome use."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:05:39.200",
+    "end": "00:05:53.740",
+    "text": "There is this Spider Monkey which is by Firefox, and there is this Apple WebKit engine which is used by Safari. So all the browsers have their own JavaScript engine. And V8 by Chrome, Spider Monkey by Firefox, and this Apple WebKit. And there is no need to remember them."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:05:54.460",
+    "end": "00:06:21.470",
+    "text": "Now interesting part starts here. Out of these JavaScript engines out there, this V8 engine which Chrome uses is an open source one. What do I mean by open source? Open source basically means the code is publicly available. The code of this v8 engine is publicly available on the GitHub now, because this v8 engine which is inside the Chrome, this, this Chrome has V8 engine which is open source."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:06:21.470",
+    "end": "00:06:36.030",
+    "text": "You know this scientist, this Rian D, his name is Rihan. What he did, he did something very crazy. You know what he did? He took this open source engine, okay, open source V8 engine, and embedded this V8 engine into a C program."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:06:37.130",
+    "end": "00:06:56.250",
+    "text": "Now what I did took a V8 engine, take a C program, take this V8 engine and embed inside a C program. Now you tell me, can you run C outside the browser? Of course. C is a machine language, right? It has the capability to talk to the machine, to talk to your hardware, to talk to your operating system."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:06:56.810",
+    "end": "00:07:21.880",
+    "text": "Now, when you embed this V8 engine and into a C program, V8 engine is capable of executing JavaScript. C can run outside the browser. With this particular thing, you were able to execute JavaScript outside the browser. And this project, this V8, engine embedded into the C, this project was named as Node js."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:07:21.880",
+    "end": "00:07:40.060",
+    "text": "Okay? So if someone asks you, what is node js? Node js is basically a project made by this crazy scientist ran that is basically the open source V8 engine of Chrome embedded into a C program. So, if I go back to my previous question that I asked you that, what is node js?"
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:07:40.060",
+    "end": "00:07:59.370",
+    "text": "Is it a framework? No. Is it a library? No. What is Node js then? Right? So Node js is nothing but just a runtime environment. So Node js, it's a C program with V8 engine which provides you an environment in which you can run JavaScript outside the browser."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:07:59.370",
+    "end": "00:08:12.330",
+    "text": "If you are from Java background, let's say, do you know that there is something known as jvm, right? There is JVM and there is something known as jre. What is gre? Just in case you know Java, that is Java runtime environment."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:08:12.330",
+    "end": "00:08:27.780",
+    "text": "If you want to run any Java code on your, on your system, you should have that GRE installed similar to that. If you want to run JavaScript, you should have this V8, any JavaScript engine installed. In browsers you have these engines by default, Shift."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:08:27.780",
+    "end": "00:08:41.539",
+    "text": "But on your machine, if you Want to run JavaScript outside of the machine, you can download this node js, which is a runtime environment, basically a C program, along with the Chrome's V8 engine. So crazy stuff, right? So this is basically Node js."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:08:41.539",
+    "end": "00:08:55.420",
+    "text": "Now what are what were the advantages of this particular approach? With this approach, number one, you can run JavaScript outside the browser. You can build web servers with JavaScript, you can build CLI tools with JavaScript. You can build iOS and Android applications with JavaScript."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:08:55.420",
+    "end": "00:09:11.900",
+    "text": "And you can even build like, applications for IoT. You can build applications for, let's say Apple Var or any other smartwatch on this earth. So the possibilities are actually endless. So huge. Shout out to Rayan, who developed Node js. Thank you so much. And let me show you."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:09:11.900",
+    "end": "00:09:25.670",
+    "text": "So if I open up my terminal, okay, so let's say if I, open up my terminal, so you can see that this is my terminal window. So this is a terminal window which is of course outside the browser. Now see what I can do is I already have Node js installed on my machine."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:09:25.670",
+    "end": "00:09:39.950",
+    "text": "And don't worry, in the next video I'll show you how you can also install Node js if I type node and enter. Can you see that? Actually I am into the Node js, which is version 22. And now if I say console log."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:09:39.950",
+    "end": "00:10:00.090",
+    "text": "Hey there, do you think that this code is going to execute? Let's try. If I do enter, this code was executing fine. If I say two plus five, you can see I'm getting seven. So can you see that I am able to exit execute this code which was, which is in JavaScript, which browsers can run outside of the browser?"
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:10:00.090",
+    "end": "00:10:20.410",
+    "text": "Why? Because I have Node js installed. Can this be possible if I didn't have the Node js installed? No, because I need the js engine. So for this particular js engine thing, I have installed Node js, which provides this JavaScript v8 engine in my machine, in my local machine and I can run JavaScript outside the browser."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:10:21.150",
+    "end": "00:10:38.190",
+    "text": "So I hope that with this particular video you got a clarity on what Node js is. Okay, because we are going to code a lot of things in Node js. So you have to keep in mind that Node js is not a framework or a library, it is actually a JavaScript runtime."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:10:38.190",
+    "end": "00:10:51.070",
+    "text": "Okay, so if I just go on to the Node js official website. Okay, so let's visit the official website of Node js. So what you will notice is it says run JavaScript everywhere. So Node js is a free again, it's a free and open source."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:10:51.070",
+    "end": "00:11:13.510",
+    "text": "Node js project is also, is also open source cross platform JavaScript runtime environment that lets developers create servers, web applications, command line tools and scripts. Okay, so this is basically your what do you call Node js? And you can see that we have a lot of examples also which we will eventually see as we move forward."
+  },
+  {
+    "course": "NodeJS",
+    "video": "intro",
+    "start": "00:11:13.510",
+    "end": "00:11:23.733",
+    "text": "But in this video, the main motive was to teach you that what is Node js? So with that, let's end the video and I'll meet you in the next one. Until then, bye bye and take care of."
+  }
+]

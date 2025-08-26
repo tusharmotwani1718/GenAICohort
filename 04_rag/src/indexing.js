@@ -1,32 +1,43 @@
-import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
-import { OpenAIEmbeddings } from '@langchain/openai';
+import fs from "fs";
+import { Document } from "@langchain/core/documents";
+import { OpenAIEmbeddings } from "@langchain/openai";
 import { QdrantVectorStore } from "@langchain/qdrant";
-import envConf from '../envconf.js';
+import envConf from "../envconf.js";
 
-// const pathToPdf = './nodejs.pdf'
+const jsonFilePath = "./subtitles_chunks.json";
 
-async function indexing(pathToFile, originalFileName) {
+async function indexing() {
+  // load raw JSON
+  const raw = JSON.parse(fs.readFileSync(jsonFilePath, "utf-8"));
 
-    // loading the document
-    const loader = new PDFLoader(pathToFile);
-    const docs = await loader.load();
+  // Convert to LangChain Document objects
+  const docs = raw.map((item) => {
+    return new Document({
+      pageContent: item.text, // content to embed
+      metadata: {
+        course: item.course,
+        video: item.video,
+        start: item.start,
+        end: item.end,
+      },
+    });
+  });
 
-    // make the LLM ready to create embeddings:
-    const embeddings = new OpenAIEmbeddings({
-        model :"text-embedding-3-large",
-        apiKey: envConf.openAIApiKey
-    })
+  // make the LLM ready to create embeddings
+  const embeddings = new OpenAIEmbeddings({
+    model: "text-embedding-3-large",
+    apiKey: envConf.openAIApiKey,
+  });
 
-    // create embeddings and store to vector db:
-    const vectorStore = QdrantVectorStore.fromDocuments(docs, embeddings, {
-        url: "http://localhost:6333",
-        collectionName: `collection-${originalFileName}`
-    })
+  // create embeddings and store in vector db
+  const vectorStore = await QdrantVectorStore.fromDocuments(docs, embeddings, {
+    url: "http://localhost:6333",
+    collectionName: "nodejs-course",
+  });
 
-    console.log("Indexing done...")
+  console.log("Indexing done...");
 }
 
-
-// indexing(pathToPdf);
+indexing();
 
 export default indexing;
