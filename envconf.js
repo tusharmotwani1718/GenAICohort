@@ -15,7 +15,7 @@ if (result.error) {
 }
 
 // Check for missing environment variables
-const requiredEnvVars = ['OPEN_AI_APIKEY', 'GEMINI_API_KEY'];
+const requiredEnvVars = ['OPENAI_API_KEY', 'GEMINI_API_KEY'];
 for (const key of requiredEnvVars) {
   if (!process.env[key]) {
     throw new Error(`Missing required environment variable: ${key}`);
@@ -24,7 +24,7 @@ for (const key of requiredEnvVars) {
 
 // Export configuration safely
 const envConf = {
-  openAIApiKey: process.env.OPEN_AI_APIKEY,
+  openAIApiKey: process.env.OPENAI_API_KEY,
   geminiApiKey: process.env.GEMINI_API_KEY
 };
 
