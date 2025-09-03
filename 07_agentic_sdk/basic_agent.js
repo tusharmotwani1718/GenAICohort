@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { Agent, run } from '@openai/agents';
+import { Agent, run, Runner } from '@openai/agents';
 import { OpenAI } from 'openai'
 import envConf from '../envconf.js';
 
